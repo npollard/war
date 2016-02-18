@@ -4,8 +4,7 @@ Java implementation of the card game War.
 ## Rules
 https://en.wikipedia.org/wiki/War_(card_game)
 
-In this implementation, won cards are added loser's cards first, winner's cards after.
-i.e. Player 1 draws 3, Player 2 draws 4 -> 3 and then 4 are added to the bottom of Player 2's hand.
+In this implementation, won cards are added loser's cards first, winner's cards after. For example, if Player 1 draws 3 and Player 2 draws 4, then 3 and 4 are added to the bottom of Player 2's hand in that order.
 
 If a player runs out of cards during a war, that player immediately loses.
 
