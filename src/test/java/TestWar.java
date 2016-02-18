@@ -1,11 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class TestWar {
     Player player1, player2;
-    War war;
+    GameController war;
+
+    @Before
+    public void setup() {
+        war = new GameController();
+    
+    }
 
     @Test
     public void testBattle() {
@@ -20,7 +27,7 @@ public class TestWar {
         // [5, 2] vs. [3, 4]
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
-        war = new War(player1, player2);
+        war.startGame(player1, player2);
  
         assertEquals("Start", 2, player1.getNumberOfCards());
         assertEquals("Start", 2, player2.getNumberOfCards());
@@ -50,7 +57,7 @@ public class TestWar {
         // [3, 2, 6] vs. [4, 2, 5]
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
-        war = new War(player1, player2);
+        war.startGame(player1, player2);
 
         assertEquals("Start", 3, player1.getNumberOfCards());
         assertEquals("Start", 3, player2.getNumberOfCards());
@@ -79,7 +86,7 @@ public class TestWar {
         // [3, 2, 6, 11] vs. [4, 2, 5, 10]
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
-        war = new War(player1, player2);
+        war.startGame(player1, player2);
 
         assertEquals("Start", 4, player1.getNumberOfCards());
         assertEquals("Start", 4, player2.getNumberOfCards());
@@ -110,7 +117,7 @@ public class TestWar {
         // [2, 2, 2, 2, 2, 2, 8, 8] vs. [2, 2, 2, 2, 2, 2, 2, 2]
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
-        war = new War(player1, player2);
+        war.startGame(player1, player2);
 
         assertEquals("Start", 8, player1.getNumberOfCards());
         assertEquals("Start", 8, player2.getNumberOfCards());

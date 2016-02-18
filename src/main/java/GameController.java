@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class GameController {
     Player player1, player2;
@@ -32,8 +31,20 @@ public class GameController {
 
         gameView.showGameStart();
 
+    }
+
+    public void playGame() {
+
         while (!gameOver) {
-            // PLAY!
+
+            // wait for Enter to continue
+            try {
+                System.in.read();
+            } catch (Exception e) {
+                System.err.println("ERROR: " + e.getLocalizedMessage());
+            }
+            
+            battle();
         }
 
     }
@@ -147,6 +158,7 @@ public class GameController {
     public static void main(String[] args) {
         GameController gameOfWar = new GameController();
         gameOfWar.startGame();
+        gameOfWar.playGame();
 
     }
 

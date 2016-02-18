@@ -2,13 +2,13 @@
 public class GameView {
 
     public void showGameStart() {
-        System.out.println("\n\n**********************************************************");
-        System.out.println("***\t\t\t\t\t\t\t\t\t\t***");
-        System.out.println("***\t\t\tWelcome to War!\t\t\t***");
-        System.out.println("***\t\t\t\t\t\t\t\t\t\t***");
-        System.out.println("***\tINSTRUCTIONS: Press Enter to advance through the game.\t***");
-        System.out.println("***\t\t\t\t\t\t\t\t\t\t***");
-        System.out.println("**********************************************************\n\n");
+        System.out.println("\n\n*******************************************************************");
+        System.out.println("***\t\t\t\t\t\t\t\t***");
+        System.out.println("***\t\t\tWelcome to War!\t\t\t\t***");
+        System.out.println("***\t\t\t\t\t\t\t\t***");
+        System.out.println("***    INSTRUCTIONS: Press Enter to advance through the game.\t***");
+        System.out.println("***\t\t\t\t\t\t\t\t***");
+        System.out.println("*******************************************************************\n\n");
 
     }
 
