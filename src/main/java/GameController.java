@@ -18,8 +18,8 @@ public class GameController {
 
     public void startGame() {
         List<Integer> shuffledCards = getShuffledCards();
-        List<Integer> player1Cards = new ArrayList<Integer>(shuffledCards.subList(0, 25));
-        List<Integer> player2Cards = new ArrayList<Integer>(shuffledCards.subList(26, 51));
+        List<Integer> player1Cards = new ArrayList<Integer>(shuffledCards.subList(0, 26));
+        List<Integer> player2Cards = new ArrayList<Integer>(shuffledCards.subList(26, 52));
         Player player1 = new Player(player1Cards);
         Player player2 = new Player(player2Cards);
         startGame(player1, player2);
@@ -134,7 +134,7 @@ public class GameController {
     }
 
     private boolean outOfCards(int card1, int card2) {
-        // both players out of cards, choose winner at random
+        // both players are out of cards, choose winner at random
         if (0 == card1 && 0 == card2) {
             int winner = (Math.random() < .5 ? 1 : 2); 
             gameView.showGameOver(winner);

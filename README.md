@@ -14,7 +14,7 @@ In the event that both players run out of cards simultaneously, the winner is ra
 ## Usage
 Developed with gradle 2.5.
 
-To run:
+To play a game with a shuffled deck of 52 cards:
 <pre><code>gradle installApp
 cd build/install/war/bin
 ./war
