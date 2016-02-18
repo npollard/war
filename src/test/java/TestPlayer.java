@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -8,14 +8,13 @@ public class TestPlayer {
 
     @Before
     public void setup() {
-        player = new Player();
-        ArrayList<Integer> cards = new ArrayList<Integer>();
+        List<Integer> cards = new List<Integer>();
         cards.add(1);
         cards.add(2);
         cards.add(3);
         cards.add(13);
         cards.add(14);
-        player.setCards(cards);
+        player = new Player(cards);
     }
 
     @Test

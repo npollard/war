@@ -1,16 +1,19 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class War {
     Player player1, player2;
-
-    public War() {
-        player1 = new Player();
-        player2 = new Player();
-    }
+    boolean gameOver;
 
     public War(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+        this.gameOver = false;
+    }
+
+    public boolean gameIsOver() {
+        return gameOver;
     }
 
     public void battle() {
@@ -98,12 +101,14 @@ public class War {
         if (0 == card1) {
             System.out.println("Player 1 ran out of cards. Player 2 wins!");
             player2.addCard(card2);
+            gameOver = true;
             return true;
         }
 
         if (0 == card2) {
             System.out.println("Player 2 ran out of cards. Player 1 wins!");
             player1.addCard(card1);
+            gameOver = true;
             return true;
         }
 
@@ -111,10 +116,49 @@ public class War {
 
     }
 
+    private static ArrayList<Integer> getShuffledCards() {
+        ArrayList<Integer> cards = new ArrayList<Integer>();
+        for (int suit = 0; suit < 4; suit++) {
+            for (int num = 2; num <= 13; num++) {
+                cards.add(num);
+            }
+        }
+        Collections.shuffle(cards);
+        return cards;
+    }
+
     public static void main(String[] args) {
-    
-        
-        
+        System.out.println("\n\n**********************************************************");
+        System.out.println("Welcome to War! Press Enter to continue.");
+        System.out.println("**********************************************************\n\n");
+
+        try {
+            System.in.read();
+        } catch (Exception e) {
+            System.err.println("ERROR: " + e.getLocalizedMessage());
+        }
+
+        System.out.println("INSTRUCTIONS: Press Enter to advance through each battle.\n\n\n\t\t\tHave fun!\n\n");
+
+        try {
+            System.in.read();
+        } catch (Exception e) {
+            System.err.println("ERROR: " + e.getLocalizedMessage());
+        }
+
+        ArrayList<Integer> shuffledCards = War.getShuffledCards();
+        Player player1 = new Player(shuffledCards.subList(0, 25));
+        Player player2 = new Player(shuffledCards.subList(26, 52));
+
+        while (!war.gameIsOver()) {
+            war.battle();
+            try {
+                System.in.read();
+            } catch (Exception e) {
+                System.err.println("ERROR: " + e.getLocalizedMessage());
+            }
+        }
+
     }
 
 }

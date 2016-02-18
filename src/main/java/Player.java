@@ -3,10 +3,9 @@ import java.util.ArrayList;
 public class Player {
     ArrayList<Integer> cards;
 
-    public void setCards(ArrayList<Integer> cards) {
+    public Player(ArrayList<Integer> cards) {
         this.cards = cards;
         validateCards();
-
     }
 
     public int getNumberOfCards() {
