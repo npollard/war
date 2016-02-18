@@ -1,9 +1,9 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
-    ArrayList<Integer> cards;
+    List<Integer> cards;
 
-    public Player(ArrayList<Integer> cards) {
+    public Player(List<Integer> cards) {
         this.cards = cards;
         validateCards();
     }
@@ -23,7 +23,7 @@ public class Player {
     }
 
     public void addCard(int card) {
-        if (card < 2 || 13 < card) {
+        if (card < 2 || 14 < card) {
             System.err.println("ERROR: invalid card " + card + " not added.");
             return;
         }
@@ -32,7 +32,7 @@ public class Player {
 
     }
 
-    public void addCards(ArrayList<Integer> newCards) {
+    public void addCards(List<Integer> newCards) {
         cards.addAll(newCards);
         validateCards();
 
@@ -40,7 +40,7 @@ public class Player {
 
     private void validateCards() {
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i) < 2 || 13 < cards.get(i)) {
+            if (cards.get(i) < 2 || 14 < cards.get(i)) {
                 System.err.println("ERROR: invalid card " + cards.get(i) + " removed.");
                 cards.remove(i);
             }

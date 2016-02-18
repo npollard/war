@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class War {
@@ -40,8 +41,8 @@ public class War {
 
     private void war(int card) {
         int card1, card2;
-        ArrayList<Integer> warCards1 = new ArrayList<Integer>();
-        ArrayList<Integer> warCards2 = new ArrayList<Integer>();
+        List<Integer> warCards1 = new ArrayList<Integer>();
+        List<Integer> warCards2 = new ArrayList<Integer>();
         warCards1.add(card);
         warCards2.add(card);
         boolean warring = true;
@@ -82,7 +83,7 @@ public class War {
 
     }
     
-    private boolean outOfCards(int card1, int card2, ArrayList<Integer> warCards1, ArrayList<Integer> warCards2) {
+    private boolean outOfCards(int card1, int card2, List<Integer> warCards1, List<Integer> warCards2) {
         if (0 == card1) {
             player2.addCards(warCards1);
             player2.addCards(warCards2);
@@ -116,10 +117,10 @@ public class War {
 
     }
 
-    private static ArrayList<Integer> getShuffledCards() {
-        ArrayList<Integer> cards = new ArrayList<Integer>();
+    private static List<Integer> getShuffledCards() {
+        List<Integer> cards = new ArrayList<Integer>();
         for (int suit = 0; suit < 4; suit++) {
-            for (int num = 2; num <= 13; num++) {
+            for (int num = 2; num <= 14; num++) {
                 cards.add(num);
             }
         }
@@ -146,9 +147,13 @@ public class War {
             System.err.println("ERROR: " + e.getLocalizedMessage());
         }
 
-        ArrayList<Integer> shuffledCards = War.getShuffledCards();
+        List<Integer> shuffledCards = War.getShuffledCards();
+
+        System.out.println(shuffledCards.size() + " cards shuffled");
+
         Player player1 = new Player(shuffledCards.subList(0, 25));
-        Player player2 = new Player(shuffledCards.subList(26, 52));
+        Player player2 = new Player(shuffledCards.subList(26, 51));
+        War war = new War(player1, player2);
 
         while (!war.gameIsOver()) {
             war.battle();

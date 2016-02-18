@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -8,11 +9,11 @@ public class TestWar {
 
     @Test
     public void testBattle() {
-        List<Integer> player1Cards = new List<Integer>();
+        List<Integer> player1Cards = new ArrayList<Integer>();
         player1Cards.add(5);
         player1Cards.add(2);
 
-        List<Integer> player2Cards = new List<Integer>();
+        List<Integer> player2Cards = new ArrayList<Integer>();
         player2Cards.add(3);
         player2Cards.add(4);
 
@@ -36,12 +37,12 @@ public class TestWar {
 
     @Test
     public void testShortWar() {
-        List<Integer> player1Cards = new List<Integer>();
+        List<Integer> player1Cards = new ArrayList<Integer>();
         player1Cards.add(3);
         player1Cards.add(2);
         player1Cards.add(6);
 
-        List<Integer> player2Cards = new List<Integer>();
+        List<Integer> player2Cards = new ArrayList<Integer>();
         player2Cards.add(4);
         player2Cards.add(2);
         player2Cards.add(5);
@@ -63,13 +64,13 @@ public class TestWar {
 
     @Test
     public void testWar() {
-        List<Integer> player1Cards = new List<Integer>();
+        List<Integer> player1Cards = new ArrayList<Integer>();
         player1Cards.add(3);
         player1Cards.add(2);
         player1Cards.add(6);
         player1Cards.add(11);
 
-        List<Integer> player2Cards = new List<Integer>();
+        List<Integer> player2Cards = new ArrayList<Integer>();
         player2Cards.add(4);
         player2Cards.add(2);
         player2Cards.add(5);
@@ -96,8 +97,8 @@ public class TestWar {
 
     @Test
     public void testMultiWar() {
-        List<Integer> player1Cards = new List<Integer>();
-        List<Integer> player2Cards = new List<Integer>();
+        List<Integer> player1Cards = new ArrayList<Integer>();
+        List<Integer> player2Cards = new ArrayList<Integer>();
         for (int i = 0; i < 8; i++) {
             player1Cards.add(2);
             player2Cards.add(2);

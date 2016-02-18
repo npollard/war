@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,12 +9,12 @@ public class TestPlayer {
 
     @Before
     public void setup() {
-        List<Integer> cards = new List<Integer>();
+        List<Integer> cards = new ArrayList<Integer>();
         cards.add(1);
         cards.add(2);
         cards.add(3);
         cards.add(13);
-        cards.add(14);
+        cards.add(15);
         player = new Player(cards);
     }
 
