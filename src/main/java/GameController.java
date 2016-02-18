@@ -18,8 +18,10 @@ public class GameController {
 
     public void startGame() {
         List<Integer> shuffledCards = getShuffledCards();
-        Player player1 = new Player(shuffledCards.subList(0, 25));
-        Player player2 = new Player(shuffledCards.subList(26, 51));
+        List<Integer> player1Cards = new ArrayList<Integer>(shuffledCards.subList(0, 25));
+        List<Integer> player2Cards = new ArrayList<Integer>(shuffledCards.subList(26, 51));
+        Player player1 = new Player(player1Cards);
+        Player player2 = new Player(player2Cards);
         startGame(player1, player2);
 
     }

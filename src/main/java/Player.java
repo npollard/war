@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.List;
 
 public class Player {
@@ -39,10 +40,10 @@ public class Player {
     }
 
     private void validateCards() {
-        for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i) < 2 || 14 < cards.get(i)) {
-                System.err.println("ERROR: invalid card " + cards.get(i) + " removed.");
-                cards.remove(i);
+        for (Iterator<Integer> iterator = cards.iterator(); iterator.hasNext();) {
+            int card = iterator.next();
+            if (card < 2 || 14 < card) {
+                iterator.remove();
             }
         }
 
