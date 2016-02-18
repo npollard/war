@@ -55,11 +55,10 @@ public class TestWar {
         assertEquals("Start", 3, war.getNumberOfCards(1));
         assertEquals("Start", 3, war.getNumberOfCards(2));
         war.battle();
-        assertEquals("Battle", 4, war.getNumberOfCards(1));
-        assertEquals("Battle", 2, war.getNumberOfCards(2));
+        assertEquals("Battle", 2, war.getNumberOfCards(1));
+        assertEquals("Battle", 4, war.getNumberOfCards(2));
         war.battle();
-        assertEquals("War - Done", 6, war.getNumberOfCards(1));
-        assertEquals("War - Done", 0, war.getNumberOfCards(2));
+        assertEquals("War - Done", 0, war.getNumberOfCards(1));
 
     }
 

@@ -42,13 +42,64 @@ public class War {
             player1.addCard(card1);
             System.out.println("Player 2 wins this battle.\n");
         } else {
-            // WAR!
+            war(card1);
         }
 
         System.out.println("P1: " + player1.getNumberOfCards() + " cards\t\tP2: "
                 + player2.getNumberOfCards() + " cards\n");
     }
-    
+
+    private void war(int card) {
+        int card1, card2;
+        ArrayList<Integer> warCards1 = new ArrayList<Integer>();
+        ArrayList<Integer> warCards2 = new ArrayList<Integer>();
+        warCards1.add(card);
+        warCards2.add(card);
+        boolean warring = true;
+
+        while (warring) {
+            if (0 == player1.getNumberOfCards()) {
+                player2.addCards(warCards2);
+                break;
+            } 
+
+            if (0 == player2.getNumberOfCards()) {
+                player1.addCards(warCards1);
+                break;
+            }
+
+            // "face down" cards
+            warCards1.add(player1.drawCard());
+            warCards2.add(player2.drawCard());
+
+            if (0 == player1.getNumberOfCards()) {
+                player2.addCards(warCards2);
+                break;
+            } 
+
+            if (0 == player2.getNumberOfCards()) {
+                player1.addCards(warCards1);
+                break;
+            }
+
+            card1 = player1.drawCard();
+            card2 = player2.drawCard();
+            warCards1.add(card1);
+            warCards2.add(card2);
+
+            if (card1 < card2) {
+                player2.addCards(warCards1);
+                player2.addCards(warCards2);
+                warring = false;
+            } else if (card2 < card1) {
+                player1.addCards(warCards2);
+                player1.addCards(warCards1);
+                warring = false;
+            }
+
+        }
+
+    }
 
     public static void main(String[] args) {
         System.out.println("WAAAAAAAAARRRRRRRR!");

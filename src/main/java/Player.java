@@ -5,13 +5,7 @@ public class Player {
 
     public void setCards(ArrayList<Integer> cards) {
         this.cards = cards;
-
-        for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i) < 2 || 13 < cards.get(i)) {
-                System.err.println("ERROR: invalid card " + cards.get(i) + " removed.");
-                cards.remove(i);
-            }
-        }
+        validateCards();
 
     }
 
@@ -31,11 +25,27 @@ public class Player {
 
     public void addCard(int card) {
         if (card < 2 || 13 < card) {
-            System.err.println("ERROR: invalid card.");
+            System.err.println("ERROR: invalid card " + card + " not added.");
             return;
         }
 
         cards.add(card);
+
+    }
+
+    public void addCards(ArrayList<Integer> newCards) {
+        cards.addAll(newCards);
+        validateCards();
+
+    }
+
+    private void validateCards() {
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i) < 2 || 13 < cards.get(i)) {
+                System.err.println("ERROR: invalid card " + cards.get(i) + " removed.");
+                cards.remove(i);
+            }
+        }
 
     }
 
