@@ -119,12 +119,12 @@ public class GameController {
     }
     
     private boolean outOfCards(int card1, int card2, List<Integer> warCards1, List<Integer> warCards2) {
-        if (0 == card1) {
+        if (0 == card1 && 0 < card2) {
             player2.addCards(warCards1);
             player2.addCards(warCards2);
         }
 
-        if (0 == card2) {
+        if (0 == card2 && 0 < card1) {
             player1.addCards(warCards2);
             player1.addCards(warCards1);
         }
@@ -134,6 +134,14 @@ public class GameController {
     }
 
     private boolean outOfCards(int card1, int card2) {
+        // both players out of cards, choose winner at random
+        if (0 == card1 && 0 == card2) {
+            int winner = (Math.random() < .5 ? 1 : 2); 
+            gameView.showGameOver(winner);
+            gameOver = true;
+            return true;
+        }
+
         if (0 == card1) {
             player2.addCard(card2);
             gameOver = true;
