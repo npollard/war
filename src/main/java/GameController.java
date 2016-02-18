@@ -72,9 +72,9 @@ public class GameController {
             war(card1); 
         }
 
-        gameView.showResult(player1.getNumberOfCards(), player2.getNumberOfCards());
-
-        
+        if (!gameOver) {
+            gameView.showResult(player1.getNumberOfCards(), player2.getNumberOfCards());
+        }
 
     }
 

@@ -13,13 +13,13 @@ public class GameView {
     }
 
     public void showDraw(int card1, int card2) {
-        System.out.println("------------------------------------\n");
+        System.out.println("------------------------------------\n\n");
         System.out.println("P1 draws " + card1 + "\tP2 draws " + card2 + "\n");
 
     }
        
     public void showBattle(int winner) {
-        System.out.println("Player " + winner + " wins this battle.");
+        System.out.println("Player " + winner + " wins this battle.\n");
 
     }
 
@@ -29,25 +29,25 @@ public class GameView {
     }
 
     public void showWarStart() {
-        System.out.println("################");
-        System.out.println("It's a war!");
+        System.out.println("################\n");
+        System.out.println("It's a war!\n");
     
     }
 
     public void showWarDraw(int card1, int card2) {
-        System.out.println("P1 draws " + card1 + "\tP2 draws " + card2);
+        System.out.println("P1 draws " + card1 + "\tP2 draws " + card2 + "\n");
     
     }
 
     public void showWarEnd(int winner) {
-        System.out.println("Player " + winner + " wins this war.");
+        System.out.println("Player " + winner + " wins this war.\n");
         System.out.println("################\n");
 
     }
     
     public void showGameOver(int winner) {
-        System.out.println("\t\t\tPlayer " + winner + " wins!");
-        System.out.println("\n\t\t\t**** GAME OVER ****\n");
+        System.out.println("\tPlayer " + winner + " wins!");
+        System.out.println("\n\t**** GAME OVER ****\n");
     
     }
 
