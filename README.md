@@ -15,11 +15,8 @@ In the event that both players run out of cards simultaneously, the winner is ra
 Developed with gradle 2.5.
 
 To run:
-<code>
-gradle installApp
-
+<code>gradle installApp
 cd build/install/war/bin
-
 ./war
 </code>
 
