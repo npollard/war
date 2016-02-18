@@ -4,11 +4,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class TestWar {
+    Player player1, player2;
     War war;
 
     @Before
     public void setup() {
-        war = new War();
+        player1 = new Player();
+        player2 = new Player();
+        war = new War(player1, player2);
     }
 
     @Test
@@ -22,7 +25,8 @@ public class TestWar {
         player2Cards.add(4);
 
         // [5, 2] vs. [3, 4]
-        war.setCards(player1Cards, player2Cards);
+        player1.setCards(player1Cards);
+        player2.setCards(player2Cards);
  
         assertEquals("Start", 2, war.getNumberOfCards(1));
         assertEquals("Start", 2, war.getNumberOfCards(2));
@@ -50,7 +54,8 @@ public class TestWar {
         player2Cards.add(5);
 
         // [3, 2, 6] vs. [4, 2, 5]
-        war.setCards(player1Cards, player2Cards);
+        player1.setCards(player1Cards);
+        player2.setCards(player2Cards);
  
         assertEquals("Start", 3, war.getNumberOfCards(1));
         assertEquals("Start", 3, war.getNumberOfCards(2));
@@ -77,7 +82,8 @@ public class TestWar {
         player2Cards.add(10);
 
         // [3, 2, 6, 11] vs. [4, 2, 5, 10]
-        war.setCards(player1Cards, player2Cards);
+        player1.setCards(player1Cards);
+        player2.setCards(player2Cards);
  
         assertEquals("Start", 4, war.getNumberOfCards(1));
         assertEquals("Start", 4, war.getNumberOfCards(2));
@@ -106,7 +112,8 @@ public class TestWar {
         player1Cards.set(7, 8);
 
         // [2, 2, 2, 2, 2, 2, 8, 8] vs. [2, 2, 2, 2, 2, 2, 2, 2]
-        war.setCards(player1Cards, player2Cards);
+        player1.setCards(player1Cards);
+        player2.setCards(player2Cards);
  
         assertEquals("Start", 8, war.getNumberOfCards(1));
         assertEquals("Start", 8, war.getNumberOfCards(2));
