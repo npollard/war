@@ -54,6 +54,10 @@ public class GameController {
     public void battle() {
         int card1 = player1.drawCard();
         int card2 = player2.drawCard();
+        if (outOfCards(card1, card2)) {
+            return;
+        }
+
         gameView.showDraw(card1, card2);
        
         if (card1 < card2) {
@@ -69,6 +73,8 @@ public class GameController {
         }
 
         gameView.showResult(player1.getNumberOfCards(), player2.getNumberOfCards());
+
+        
 
     }
 
