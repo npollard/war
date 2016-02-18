@@ -28,8 +28,25 @@ public class War {
     }
 
     public void battle() {
-        System.out.println("ATTACK!");
+        System.out.println("---------------------");
+        int card1 = player1.drawCard();
+        int card2 = player2.drawCard();
+        System.out.println("P1: " + card1 + "\tP2: " + card2 + "\n");
+       
+        if (card1 < card2) {
+            player2.addCard(card1);
+            player2.addCard(card2);
+            System.out.println("Player 1 wins this battle.\n");
+        } else if (card2 < card1) {
+            player1.addCard(card2);
+            player1.addCard(card1);
+            System.out.println("Player 2 wins this battle.\n");
+        } else {
+            // WAR!
+        }
 
+        System.out.println("P1: " + player1.getNumberOfCards() + " cards\t\tP2: "
+                + player2.getNumberOfCards() + " cards\n");
     }
     
 
