@@ -8,7 +8,7 @@ In this implementation, won cards are added loser's cards first, winner's cards 
 
 If a player runs out of cards during a war, that player immediately loses.
 
-In the event that both players run out of cards simultaneously, the winner is randomly picked.
+In the event that both players run out of cards simultaneously, the winner is picked randomly.
 
 ## Usage
 Developed with gradle 2.5.
