@@ -42,6 +42,9 @@ public class War {
             player1.addCard(card1);
             System.out.println("Player 2 wins this battle.\n");
         } else {
+            System.out.println("WAAAAAAAARRRRRRRR!");
+            System.out.println("PLAYER 1: " + player1.toString());
+            System.out.println("PLAYER 2: " + player2.toString());
             war(card1);
         }
 
@@ -58,46 +61,68 @@ public class War {
         boolean warring = true;
 
         while (warring) {
-            if (0 == player1.getNumberOfCards()) {
-                player2.addCards(warCards2);
-                break;
-            } 
-
-            if (0 == player2.getNumberOfCards()) {
-                player1.addCards(warCards1);
-                break;
-            }
-
             // "face down" cards
-            warCards1.add(player1.drawCard());
-            warCards2.add(player2.drawCard());
-
-            if (0 == player1.getNumberOfCards()) {
-                player2.addCards(warCards2);
-                break;
-            } 
-
-            if (0 == player2.getNumberOfCards()) {
-                player1.addCards(warCards1);
-                break;
-            }
-
             card1 = player1.drawCard();
             card2 = player2.drawCard();
+            if (outOfCards(card1, card2, warCards1, warCards2)) break;
+            System.out.println("(face down: " + card1 + ", " + card2 + ")");
             warCards1.add(card1);
             warCards2.add(card2);
 
+            card1 = player1.drawCard();
+            card2 = player2.drawCard();
+            System.out.println("PLAYER 1: " + player1.toString());
+            System.out.println("PLAYER 2: " + player2.toString());
+            if (outOfCards(card1, card2, warCards1, warCards2)) break;
+            System.out.println("P1: " + card1 + "\tP2: " + card2);
+            warCards1.add(card1);
+            warCards2.add(card2);
+            
             if (card1 < card2) {
                 player2.addCards(warCards1);
                 player2.addCards(warCards2);
+                System.out.println("Player 2 wins this war.\n");
                 warring = false;
             } else if (card2 < card1) {
                 player1.addCards(warCards2);
                 player1.addCards(warCards1);
+                System.out.println("Player 1 wins this war.\n");
                 warring = false;
             }
 
         }
+
+    }
+    
+    private boolean outOfCards(int card1, int card2, ArrayList<Integer> warCards1, ArrayList<Integer> warCards2) {
+        if (0 == card1) {
+            player2.addCards(warCards1);
+            player2.addCards(warCards2);
+        }
+
+        if (0 == card2) {
+            player1.addCards(warCards2);
+            player1.addCards(warCards1);
+        }
+
+        return outOfCards(card1, card2);
+
+    }
+
+    private boolean outOfCards(int card1, int card2) {
+        if (0 == card1) {
+            System.out.println("Player 1 ran out of cards. Player 2 wins!");
+            player2.addCard(card2);
+            return true;
+        }
+
+        if (0 == card2) {
+            System.out.println("Player 2 ran out of cards. Player 1 wins!");
+            player1.addCard(card1);
+            return true;
+        }
+
+        return false;
 
     }
 
