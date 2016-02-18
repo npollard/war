@@ -31,11 +31,9 @@ public class TestWar {
         assertEquals("Battle", 1, war.getNumberOfCards(2));
         war.battle();
         war.battle();
-        assertEquals("Battle", 1, war.getNumberOfCards(1));
-        assertEquals("Battle", 3, war.getNumberOfCards(2));
         war.battle();
-        assertEquals("Done", 0, war.getNumberOfCards(1));
-        assertEquals("Done", 4, war.getNumberOfCards(2));
+        assertEquals("Done", 4, war.getNumberOfCards(1));
+        assertEquals("Done", 0, war.getNumberOfCards(2));
 
     }
 
