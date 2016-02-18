@@ -28,16 +28,16 @@ public class TestWar {
         player1.setCards(player1Cards);
         player2.setCards(player2Cards);
  
-        assertEquals("Start", 2, war.getNumberOfCards(1));
-        assertEquals("Start", 2, war.getNumberOfCards(2));
+        assertEquals("Start", 2, player1.getNumberOfCards());
+        assertEquals("Start", 2, player2.getNumberOfCards());
         war.battle();
-        assertEquals("Battle", 3, war.getNumberOfCards(1));
-        assertEquals("Battle", 1, war.getNumberOfCards(2));
+        assertEquals("Battle", 3, player1.getNumberOfCards());
+        assertEquals("Battle", 1, player2.getNumberOfCards());
         war.battle();
         war.battle();
         war.battle();
-        assertEquals("Done", 4, war.getNumberOfCards(1));
-        assertEquals("Done", 0, war.getNumberOfCards(2));
+        assertEquals("Done", 4, player1.getNumberOfCards());
+        assertEquals("Done", 0, player2.getNumberOfCards());
 
     }
 
@@ -57,13 +57,13 @@ public class TestWar {
         player1.setCards(player1Cards);
         player2.setCards(player2Cards);
  
-        assertEquals("Start", 3, war.getNumberOfCards(1));
-        assertEquals("Start", 3, war.getNumberOfCards(2));
+        assertEquals("Start", 3, player1.getNumberOfCards());
+        assertEquals("Start", 3, player2.getNumberOfCards());
         war.battle();
-        assertEquals("Battle", 2, war.getNumberOfCards(1));
-        assertEquals("Battle", 4, war.getNumberOfCards(2));
+        assertEquals("Battle", 2, player1.getNumberOfCards());
+        assertEquals("Battle", 4, player2.getNumberOfCards());
         war.battle();
-        assertEquals("War - Done", 0, war.getNumberOfCards(1));
+        assertEquals("War - Done", 0, player1.getNumberOfCards());
 
     }
 
@@ -85,17 +85,17 @@ public class TestWar {
         player1.setCards(player1Cards);
         player2.setCards(player2Cards);
  
-        assertEquals("Start", 4, war.getNumberOfCards(1));
-        assertEquals("Start", 4, war.getNumberOfCards(2));
+        assertEquals("Start", 4, player1.getNumberOfCards());
+        assertEquals("Start", 4, player2.getNumberOfCards());
         war.battle();
-        assertEquals("Battle", 3, war.getNumberOfCards(1));
-        assertEquals("Battle", 5, war.getNumberOfCards(2));
+        assertEquals("Battle", 3, player1.getNumberOfCards());
+        assertEquals("Battle", 5, player2.getNumberOfCards());
         war.battle();
-        assertEquals("War", 6, war.getNumberOfCards(1));
-        assertEquals("War", 2, war.getNumberOfCards(2));
+        assertEquals("War", 6, player1.getNumberOfCards());
+        assertEquals("War", 2, player2.getNumberOfCards());
         war.battle();
-        assertEquals("Battle", 5, war.getNumberOfCards(1));
-        assertEquals("Battle", 3, war.getNumberOfCards(2));
+        assertEquals("Battle", 5, player1.getNumberOfCards());
+        assertEquals("Battle", 3, player2.getNumberOfCards());
 
     }
 
@@ -115,14 +115,14 @@ public class TestWar {
         player1.setCards(player1Cards);
         player2.setCards(player2Cards);
  
-        assertEquals("Start", 8, war.getNumberOfCards(1));
-        assertEquals("Start", 8, war.getNumberOfCards(2));
+        assertEquals("Start", 8, player1.getNumberOfCards());
+        assertEquals("Start", 8, player2.getNumberOfCards());
         war.battle();
-        assertEquals("War * 3", 15, war.getNumberOfCards(1));
-        assertEquals("War * 3", 1, war.getNumberOfCards(2));
+        assertEquals("War * 3", 15, player1.getNumberOfCards());
+        assertEquals("War * 3", 1, player2.getNumberOfCards());
         war.battle();
-        assertEquals("Done", 16, war.getNumberOfCards(1));
-        assertEquals("Done", 0, war.getNumberOfCards(2));
+        assertEquals("Done", 16, player1.getNumberOfCards());
+        assertEquals("Done", 0, player2.getNumberOfCards());
 
     }
 }

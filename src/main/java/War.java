@@ -13,20 +13,6 @@ public class War {
         this.player2 = player2;
     }
 
-    public int getNumberOfCards(int playerNumber) {
-        if (1 != playerNumber && 2 != playerNumber) {
-            System.err.println("ERROR: invalid player.");
-            return 0;
-        }
-
-        if (1 == playerNumber) {
-            return player1.getNumberOfCards();
-        } else {
-            return player2.getNumberOfCards();
-        }
-
-    }
-
     public void battle() {
         System.out.println("------------------------------------\n");
         int card1 = player1.drawCard();
